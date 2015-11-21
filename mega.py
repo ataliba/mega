@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 #-*- encoding: utf-8 -*-
 
+from cookielib import CookieJar
+import urllib
 import urllib2
 import re
 import sys
@@ -44,8 +46,11 @@ def getApostas():
 
 
 def getResultado(concurso):
+    
     url = URL_CONCURSO + str(concurso)
-    url = urllib2.urlopen(url)
+    cj = CookieJar()
+    opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
+    url = opener.open(url)
     html = url.read()
     url.close()
 
