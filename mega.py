@@ -70,6 +70,14 @@ TELEGRAM_BOT=''
 BOT_KEY=''
 CHAT=''
 
+def TelegramBot(Mensagem)
+    
+    req = urllib2.Request('')
+    response = urllib2.urlopen(req)
+    the_page = response.read()
+
+    https://api.telegram.org/bot[BOT_API_KEY]/sendMessage?chat_id=[MY_CHANNEL_NAME]&text=[MY_MESSAGE_TEXT]
+
 def getApostas():
     apostas = []
 
@@ -79,7 +87,9 @@ def getApostas():
             r = r.replace('\n', '')
             apostas.append(r)
     else:
-       print 'Você esqueceu de criar o arquivo do concurso' + ' ' + concurso
+       Mensagem = 'Você esqueceu de criar o arquivo do concurso' + ' ' + concurso
+       print Mensagem
+       TelegramBot(Mensagem)
        exit()
 
     return apostas
@@ -125,6 +135,8 @@ def sorteio(apostas, resultado):
 
     print
     print 'JOGO:', '-'.join(resultado)
+
+    concursomaisum = int(concurso) + 1
 
     file_counter = open(ARQ_CONTADOR, 'w')
     file_counter.write(str(concursomaisum))
