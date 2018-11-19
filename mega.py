@@ -34,7 +34,7 @@ Update: Thu, 27 17:45 2012
 """
 
 URL_CONCURSO = 'http://www1.caixa.gov.br/loterias/loterias/megasena/megasena_pesquisa_new.asp?submeteu=sim&opcao=concurso&txtConcurso='
-ARQ_CONTADOR='counter.txt'
+ARQ_CONTADOR='contador.txt'
 
 """
 Coloque aqui as informações do seu bot : 
