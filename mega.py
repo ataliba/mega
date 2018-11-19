@@ -70,13 +70,14 @@ TELEGRAM_BOT=''
 BOT_KEY=''
 CHAT=''
 
-def TelegramBot(Mensagem)
+def TelegramBot(Mensagem):
+    # motando a url a ser usada para enviar mensagem no Telegram 
     
-    req = urllib2.Request('')
+    URL_BOT='https://api.telegram.org/bot' + BOT_KEY + 'sendMessage?chat_id=' + CHAT + '&text=' + Mensagem
+     
+    req = urllib2.Request(URL_BOT)
     response = urllib2.urlopen(req)
     the_page = response.read()
-
-    https://api.telegram.org/bot[BOT_API_KEY]/sendMessage?chat_id=[MY_CHANNEL_NAME]&text=[MY_MESSAGE_TEXT]
 
 def getApostas():
     apostas = []
