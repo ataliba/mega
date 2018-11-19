@@ -6,6 +6,8 @@ import urllib
 import urllib2
 import re
 import sys
+import os.path
+
 
 """
 Instruções:
@@ -27,20 +29,32 @@ $ ./mega.py 1450
 4) Se você ganhar faça um donate pra mim! ;-)
 
 Author: Leandro T. Souza <leandrotoledo [at] member [dot] fsf [dot] org>
+Modified by : Ataliba Teixeira <ataliba [at] pm [dot] me> 
 Update: Thu, 27 17:45 2012
 """
 
-FILE_APOSTAS = 'mega.txt'
 URL_CONCURSO = 'http://www1.caixa.gov.br/loterias/loterias/megasena/megasena_pesquisa_new.asp?submeteu=sim&opcao=concurso&txtConcurso='
+ARQ_CONTADOR='counter.txt'
 
+"""
+Coloque aqui as informações do seu bot : 
+
+TELEGRAM_BOT = 1 caso queira ser notificado, 0 caso não queira
+BOT_KEY = coloque a chave do bot que você recebeu via BOTFATHER no telegram
+
+"""
 
 def getApostas():
     apostas = []
 
-    with open(FILE_APOSTAS, 'r') as f:
+    if os.path.isfile(concurso):
+      with open(concurso, 'r') as f:
         for r in f:
             r = r.replace('\n', '')
             apostas.append(r)
+    else:
+       print 'Você esqueceu de criar o arquivo do concurso' + ' ' + concurso
+       exit()
 
     return apostas
 
@@ -59,6 +73,7 @@ def getResultado(concurso):
         print 'Ainda não saiu o resultado...'
         exit()
 
+    
     resultado = re.findall('\d{2}', data[20]) # resultado ordenado
 
     return resultado
@@ -85,6 +100,10 @@ def sorteio(apostas, resultado):
     print
     print 'JOGO:', '-'.join(resultado)
 
+    file_counter = open(ARQ_CONTADOR, 'w')
+    file_counter.write(str(concursomaisum))
+    file_counter.close()
+
 
 def main(concurso):
     apostas = getApostas()
@@ -95,9 +114,11 @@ def main(concurso):
 
 if __name__ == '__main__':
     try:
-        concurso = sys.argv[1]
-    except IndexError:
-        print 'Informe o código do concurso.'
-        print 'Por exemplo:', sys.argv[0], '1450'
+        file_counter = open(ARQ_CONTADOR, 'r')
+        concurso = file_counter.readline().rstrip()
+        file_counter.close()
+    except IOError:
+        print 'Crie o arquivo counter.txt com o número do primeiro concurso que você quer consultar'
+        print 'Por exemplo: 1450'
         exit()
     main(concurso)
