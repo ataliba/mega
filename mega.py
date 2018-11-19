@@ -144,7 +144,7 @@ if __name__ == '__main__':
         concurso = file_counter.readline().rstrip()
         file_counter.close()
     except IOError:
-        print 'Crie o arquivo counter.txt com o número do primeiro concurso que você quer consultar'
+        print 'Crie o arquivo contador.txt com o número do primeiro concurso que você quer consultar'
         print 'Por exemplo: 1450'
         exit()
     main(concurso)
