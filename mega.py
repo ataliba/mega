@@ -62,8 +62,13 @@ Coloque aqui as informações do seu bot :
 
 TELEGRAM_BOT = 1 caso queira ser notificado, 0 caso não queira
 BOT_KEY = coloque a chave do bot que você recebeu via BOTFATHER no telegram
+CHAT = código do chat para o qual serão enviadas as mensagens 
 
 """
+
+TELEGRAM_BOT=''
+BOT_KEY=''
+CHAT=''
 
 def getApostas():
     apostas = []
