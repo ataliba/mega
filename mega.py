@@ -35,7 +35,18 @@ $ ./mega.py
 
 4) É possível colocar no cron
 
-0 5 * * 1 /home/ataliba/mega.py 1450 | mail -s "Resultado Mega" ataliba@pm.me
+**Caso esteja com o Telegram desativado**
+
+0 5 * * 1 /home/ataliba/mega.py  | mail -s "Resultado Mega" ataliba@pm.me
+
+**Caso esteja com o Telegram ativado**
+
+0 5 * * 1 /home/ataliba/mega.py | mail -s "Resultado Mega" ataliba@pm.me
+
+**Como os concursos da MegaSena são sempre na quarta-feira e sexta-feira 20 horas**
+
+00 6 * * 3 /home/ataliba/mega.py
+00 6 * * 5 /home/ataliba/mega.py
 
 
 4) Se você ganhar faça um donate pra mim! ;-)
@@ -43,15 +54,10 @@ $ ./mega.py
 
 Creditos ao Leandro de Souza que criou o script original e me deu a base para fazer este aqui :)
 
-TODO:
-
-* Terminar a parte de integração com o Telegram
-* Modificar os comentários internos do script
-
 
 Author: Leandro T. Souza <leandrotoledo [at] member [dot] fsf [dot] org>
 Modified by : Ataliba Teixeira <ataliba [at] pm [dot] me> 
-Update: Thu, 27 17:45 2012
+Update: Mon, 19 23:24 2018
 """
 
 URL_CONCURSO = 'http://www1.caixa.gov.br/loterias/loterias/megasena/megasena_pesquisa_new.asp?submeteu=sim&opcao=concurso&txtConcurso='
