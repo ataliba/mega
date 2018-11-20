@@ -23,8 +23,15 @@ $ ./mega.py
 
 4) É possível colocar no cron
 
-0 5 * * 1 /home/ataliba/mega.py 1450 | mail -s "Resultado Mega" ataliba@pm.me
+**Caso esteja com o Telegram desativado**
 
+0 5 * * 1 /home/ataliba/mega.py  | mail -s "Resultado Mega" ataliba@pm.me
+
+**Caso esteja com o Telegram ativado**
+
+0 5 * * 1 /home/ataliba/mega.py | mail -s "Resultado Mega" ataliba@pm.me
+
+**Como os concursos da MegaSena são sempre na quarta-feira e sexta-feira 20 horas**
 
 4) Se você ganhar faça um donate pra mim! ;-)
 
