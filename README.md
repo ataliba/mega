@@ -34,6 +34,7 @@ $ ./mega.py
 **Como os concursos da MegaSena são sempre na quarta-feira e sexta-feira 20 horas**
 
 00 23 * * 3 /home/ataliba/mega.py
+
 00 23 * * 5 /home/ataliba/mega.py
 
 Rodamos as 23 horas para garantir que o resultado já tenha sido publicado.  
