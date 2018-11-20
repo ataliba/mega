@@ -60,13 +60,13 @@ ARQ_CONTADOR='contador.txt'
 """
 Coloque aqui as informações do seu bot : 
 
-TELEGRAM_BOT = 1 caso queira ser notificado, 0 caso não queira
+TELEGRAM_BOT = True caso queira ser notificado, False caso não queira
 BOT_KEY = coloque a chave do bot que você recebeu via BOTFATHER no telegram
 CHAT = código do chat para o qual serão enviadas as mensagens 
 
 """
 
-TELEGRAM_BOT=''
+TELEGRAM_BOT=True
 BOT_KEY=''
 CHAT=''
 
@@ -89,8 +89,11 @@ def getApostas():
             apostas.append(r)
     else:
        Mensagem = 'Você esqueceu de criar o arquivo do concurso' + ' ' + concurso
-       print Mensagem
-       TelegramBot(Mensagem)
+       if TELEGRAM_BOT:
+          TelegramBot(Mensagem)
+       else:
+          print Mensagem
+
        exit()
 
     return apostas
@@ -107,7 +110,11 @@ def getResultado(concurso):
 
     data = html.split('|')
     if data[-1].decode('iso-8859-1', 'utf-8') == u'Não existe resulado!': # sim, resulado...
-        print 'Ainda não saiu o resultado...'
+       Mensagem='Ainda não saiu o resultado...'    
+       if TELEGRAM_BOT: 
+          TelegramBot(Mensagem)
+       else:
+          print 'Ainda não saiu o resultado...'
         exit()
 
     
@@ -117,8 +124,8 @@ def getResultado(concurso):
 
 
 def sorteio(apostas, resultado):
-    print '[ TOTAL DE ACERTOS ] | JOGO'
-    print
+    Mensagem = '[ TOTAL DE ACERTOS ] | JOGO'
+    Mensagem = Mensagem + '\n'
 
     for aposta in apostas:
         aposta = aposta.split('-')
@@ -130,12 +137,18 @@ def sorteio(apostas, resultado):
                     total += 1
 
         if total == 6:
-            print '[%s] | %s GANHOU!' % (total, '-'.join(aposta))
+            Mensagem = Mensagem + '[%s] | %s GANHOU!' % (total, '-'.join(aposta))
         else:
-            print '[%s] | %s' % (total, '-'.join(aposta))
+            Mensagem = Mensagem + '[%s] | %s' % (total, '-'.join(aposta))
 
-    print
-    print 'JOGO:', '-'.join(resultado)
+    Mensasgem = Mensagem + '\n'
+    Mensagem = Mensagem + 'JOGO:', '-'.join(resultado)
+
+    if TELEGRAM_BOT: 
+       TelegramBot(Mensagem)
+    else: 
+       print Mensagem
+
 
     concursomaisum = int(concurso) + 1
 
