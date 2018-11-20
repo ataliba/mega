@@ -33,12 +33,11 @@ $ ./mega.py
 
 **Como os concursos da MegaSena são sempre na quarta-feira e sexta-feira 20 horas**
 
+00 6 * * 3 /home/ataliba/mega.py
+00 6 * * 5 /home/ataliba/mega.py
+ 
 4) Se você ganhar faça um donate pra mim! ;-)
 
 
 Creditos ao Leandro de Souza que criou o script original e me deu a base para fazer este aqui :) 
 
-TODO: 
-
-* Terminar a parte de integração com o Telegram
-* Modificar os comentários internos do script 
