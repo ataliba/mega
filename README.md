@@ -13,7 +13,9 @@ Instruções
 coloque mais de uma linha ). 
 
 04-07-12-25-37-43
+
 02-09-12-16-28-33-43-46-51-52
+
 02-05-07-11-17-34-42-54
 
 3) Executar o script : 
