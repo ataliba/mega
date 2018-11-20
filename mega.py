@@ -73,8 +73,9 @@ CHAT=''
 def TelegramBot(Mensagem):
     # motando a url a ser usada para enviar mensagem no Telegram 
     
-    URL_BOT='https://api.telegram.org/bot' + BOT_KEY + 'sendMessage?chat_id=' + CHAT + '&text=' + Mensagem
-     
+    URL_BOT='https://api.telegram.org/bot' + BOT_KEY + '/sendMessage?chat_id=' + CHAT + '&text=' + Mensagem
+    print URL_BOT
+
     req = urllib2.Request(URL_BOT)
     response = urllib2.urlopen(req)
     the_page = response.read()
@@ -115,7 +116,7 @@ def getResultado(concurso):
           TelegramBot(Mensagem)
        else:
           print 'Ainda não saiu o resultado...'
-        exit()
+       exit()
 
     
     resultado = re.findall('\d{2}', data[20]) # resultado ordenado
