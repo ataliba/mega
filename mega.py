@@ -78,10 +78,9 @@ BOT_KEY=''
 CHAT=''
 
 def TelegramBot(Mensagem):
-    # motando a url a ser usada para enviar mensagem no Telegram 
+    # montando a url a ser usada para enviar mensagem no Telegram 
     
     URL_BOT='https://api.telegram.org/bot' + BOT_KEY + '/sendMessage?chat_id=' + CHAT + '&text=' + Mensagem
-    print URL_BOT
 
     req = urllib2.Request(URL_BOT)
     response = urllib2.urlopen(req)
