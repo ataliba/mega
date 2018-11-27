@@ -44,8 +44,8 @@ Rodamos as 23 horas para garantir que o resultado já tenha sido publicado.
 
 Bug: 
 
-O script tem um problema mapeado, mas eu ainda não tive tempo de mandar o commit que o corrige
-Logo, logo, ele está operacional. 
+* Formatação melhor da mensagem que é envida para o Telegram
+* Suporte ao Pushover 
 
 
 Creditos ao Leandro de Souza que criou o script original e me deu a base para fazer este aqui :) 
