@@ -42,6 +42,11 @@ $ ./mega.py
 Rodamos as 23 horas para garantir que o resultado já tenha sido publicado.  
 4) Se você ganhar faça um donate pra mim! ;-)
 
+Bug: 
+
+O script tem um problema mapeado, mas eu ainda não tive tempo de mandar o commit que o corrige
+Logo, logo, ele está operacional. 
+
 
 Creditos ao Leandro de Souza que criou o script original e me deu a base para fazer este aqui :) 
 
